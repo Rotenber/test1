@@ -9,12 +9,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6841274/675468/css/fonts.css" />
-    <link rel="stylesheet" href="css/main-new.css?v1.1.0.10">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <style>
         .ui-datepicker {
             width: 100%;
@@ -210,47 +206,55 @@
                     <div class="col-sm-12">
                         <h2 class="subtitle">Available Time Slots</h2>
                         <div class="time-selection">
-                            <table>
-                                <tr>
-                                    <td class="available">09:00</td>
-                                    <td class="available">09:15</td>
-                                    <td class="available">09:30</td>
-                                    <td class="available">09:45</td>
-                                    <td class="sold-out">10:00</td>
-                                    <td class="sold-out">10:15</td>
-                                    <td class="sold-out">10:30</td>
-                                    <td class="sold-out">10:45</td>
-                                </tr>
-                                <tr>
-                                    <td class="sold-out">11:00</td>
-                                    <td class="partially-available">11:15</td>
-                                    <td class="partially-available">11:30</td>
-                                    <td class="partially-available">11:45</td>
-                                    <td class="sold-out">12:00</td>
-                                    <td class="partially-available">12:15</td>
-                                    <td class="partially-available">12:30</td>
-                                    <td class="partially-available">12:45</td>
-                                </tr>
-                                <tr>
-                                    <td class="partially-available">13:00</td>
-                                    <td class="partially-available">13:15</td>
-                                    <td class="partially-available">13:30</td>
-                                    <td class="partially-available">13:45</td>
-                                    <td class="partially-available">14:00</td>
-                                    <td class="partially-available">14:15</td>
-                                    <td class="partially-available">14:30</td>
-                                    <td class="partially-available">14:45</td>
-                                </tr>
-                                <tr>
-                                    <td class="partially-available">15:00</td>
-                                    <td class="partially-available">15:15</td>
-                                    <td class="partially-available">15:30</td>
-                                    <td class="partially-available">15:45</td>
-                                    <td class="partially-available">16:00</td>
-                                    <td class="available">16:15</td>
-                                    <td class="available">16:30</td>
-                                    <td class="sold-out">16:45</td>
-                                </tr>
+                            <table id="timeslotsTable" class="display">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Availability</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="available">09:00</td>
+                                        <td class="available">09:15</td>
+                                        <td class="available">09:30</td>
+                                        <td class="available">09:45</td>
+                                        <td class="sold-out">10:00</td>
+                                        <td class="sold-out">10:15</td>
+                                        <td class="sold-out">10:30</td>
+                                        <td class="sold-out">10:45</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sold-out">11:00</td>
+                                        <td class="partially-available">11:15</td>
+                                        <td class="partially-available">11:30</td>
+                                        <td class="partially-available">11:45</td>
+                                        <td class="sold-out">12:00</td>
+                                        <td class="partially-available">12:15</td>
+                                        <td class="partially-available">12:30</td>
+                                        <td class="partially-available">12:45</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="partially-available">13:00</td>
+                                        <td class="partially-available">13:15</td>
+                                        <td class="partially-available">13:30</td>
+                                        <td class="partially-available">13:45</td>
+                                        <td class="partially-available">14:00</td>
+                                        <td class="partially-available">14:15</td>
+                                        <td class="partially-available">14:30</td>
+                                        <td class="partially-available">14:45</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="partially-available">15:00</td>
+                                        <td class="partially-available">15:15</td>
+                                        <td class="partially-available">15:30</td>
+                                        <td class="partially-available">15:45</td>
+                                        <td class="partially-available">16:00</td>
+                                        <td class="available">16:15</td>
+                                        <td class="available">16:30</td>
+                                        <td class="sold-out">16:45</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -332,7 +336,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"></script>
     <script>
         $(document).ready(function() {
             $("#datepicker").datepicker({
@@ -352,4 +355,3 @@
     </script>
 </body>
 </html>
-
