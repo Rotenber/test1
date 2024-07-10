@@ -13,56 +13,17 @@
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/main-new.css?v1.1.0.10">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
-        .ui-datepicker {
-            width: 100%;
-        }
-        .ui-datepicker table {
-            width: 100%;
-        }
-        .ui-datepicker td {
-            border: 1px solid #e0e0e0;
-            padding: 5px;
-        }
-        .ui-datepicker .ui-datepicker-title {
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .ui-datepicker .ui-datepicker-header {
-            background: #f8f8f8;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 10px;
-        }
-        .ui-datepicker .ui-state-default {
-            background: #fff;
-            color: #333;
-        }
-        .ui-datepicker .ui-state-highlight {
-            background: #1e90ff;
-            color: #fff;
-        }
-        .ui-datepicker .ui-state-disabled {
-            text-decoration: line-through;
-            color: #ff0000;
-        }
-        .date-soldout {
-            margin-top: 10px;
-            font-size: 14px;
-        }
-        .date-soldout .soldout {
-            color: #ff0000;
-            text-decoration: line-through;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <script>
-        var ticketDateMin = new Date(2024, 6, 9);
+        var language = 'en';
+        var ticketDateMin = new Date(2024, 6, 09);
         var ticketDateMax = new Date(2024, 9, 31);
-        var disabledDates = ["2021-11-29", "2021-12-06", "2021-12-13", "2022-01-17", "2022-01-24", "2022-01-31", "2022-02-07", "2022-02-14"];
-        var soldoutDays = ["2024-07-09", "2024-07-10", "2024-07-11", "2024-07-12", "2024-07-13", "2024-07-14", "2024-07-16", "2024-07-17"];
+        var disabledDates = ["2021-11-29","2021-12-06","2021-12-13","2022-01-17","2022-01-24","2022-01-31","2022-02-07","2022-02-14"];
+        var soldoutDays = ["2024-07-09","2024-07-10","2024-07-11","2024-07-12","2024-07-13","2024-07-14","2024-07-16","2024-07-17"];
     </script>
 </head>
 <body id="datetime">
@@ -87,7 +48,7 @@
                     </div>
                 </div>
                 <div class="row datepicker-container">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <h2 class="subtitle">When would you like to visit the <span class="vangoghmuseum">Van Gogh Museum</span>?</h2>
                         <div class="people-select-box">
                             <span>How many people are there in your group?</span>
@@ -119,7 +80,7 @@
                             <div class="ui-state-disabled soldout">23</div> = sold out
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <h2 class="subtitle">Available Time Slots</h2>
                         <div class="time-selection">
                             <div class="loading">
