@@ -9,12 +9,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6841274/675468/css/fonts.css" />
-    <link rel="stylesheet" href="css/main-new.css?v1.1.0.10">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <style>
         .ui-datepicker {
             width: 100%;
@@ -332,6 +328,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"></script>
     <script>
         $(document).ready(function() {
             $("#datepicker").datepicker({
@@ -346,7 +343,9 @@
                     onDatepickerOption(dateText);
                 }
             });
+            $('#timeslotsTable').DataTable();
         });
     </script>
 </body>
 </html>
+
