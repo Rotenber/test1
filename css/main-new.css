@@ -2063,6 +2063,15 @@ aside {
 /*
 * datepicker
 */
+
+        .ui-datepicker {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+
 .ui-state-disabled
 {
 	color: #e7e7e7;
