@@ -18,7 +18,7 @@
     <script>
         var language = 'en';
         var jsDomain = '';
-        var ticketDateMin = new Date(2024, 6, 9);
+        var ticketDateMin = new Date(2024, 6, 09);
         var ticketDateMax = new Date(2024, 9, 31);
         var disabledDays = [];
         var disabledDates = ["2021-11-29","2021-12-06","2021-12-13","2022-01-17","2022-01-24","2022-01-31","2022-02-07","2022-02-14"];
@@ -149,16 +149,19 @@
                             <span>How many people are there in your group?</span>
                             <div class="select-style">
                                 <select name="people-select" id="people-select">
-                                <option value="1" selected="selected">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>                                </select>
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-datepicker notranslate">
-                            <!-- datepicker -->
-                            <div id="datepicker" class="notranslate"></div>
+                            <div id="datepicker"></div>
                             <input type="hidden" name="ticketTime" id="ticketTime" value="" />
                             <input type="hidden" name="overflowTime" id="overflowTime" value="" />
-
-                            <!-- datepicker for mobile -->
                             <div class="visible-xs-block notranslate">
                                 <div class="date-group">
                                     <input name="ticketDate" id="ticketDate" type="date" class="date-input notranslate" value="2024-07-09" min="2024-07-09" max="2024-10-31">
@@ -173,17 +176,11 @@
                         <h2 class="subtitle">Available Time Slots</h2>
                         <div class="time-selection">
                             <div class="loading">
-                                <p>
-                                    <strong>Times will be loaded...</strong>
-                                </p>
+                                <p><strong>Times will be loaded...</strong></p>
                                 <img src="img/loading.gif" alt="Loading" />
                             </div>
                             <div class="timeslots">
-                                <p>
-                                    At what time would you like to visit?                                        <span id="zomer-vrijdag">A free introduction on Van Gogh and his life is available at 7:30 pm.</span>
-                                    <span id="zomer-zaterdag">A free introduction on Van Gogh and his life is available at 6:30 pm.</span>
-                                    <br>
-                                    Tip! The museum is usually quieter at the times shown in green.                                    </p>
+                                <p>At what time would you like to visit? <span id="zomer-vrijdag">A free introduction on Van Gogh and his life is available at 7:30 pm.</span> <span id="zomer-zaterdag">A free introduction on Van Gogh and his life is available at 6:30 pm.</span> <br> Tip! The museum is usually quieter at the times shown in green.</p>
                                 <div class="reference-container">
                                     <span class="item">
                                         <span class="color-block green"></span>
@@ -227,8 +224,7 @@
                                     </table>
                                 </div>
                                 <div class="overflow-container" style="display:none;">
-                                    <p>
-                                        <strong>Your date/timeslot of preference sold out?</strong><br/>You can still visit our continuous exhibition on these timeslots:                                        </p>
+                                    <p><strong>Your date/timeslot of preference sold out?</strong><br/>You can still visit our continuous exhibition on these timeslots:</p>
                                 </div>
                                 <div class="table-time-overflow"></div>
                             </div>
@@ -249,37 +245,30 @@
                         <h3 class="h3-first">Please note:</h3>
                         <ul class="ticket-info__list">
                             <li><span>Scan your ticket at the door. You can scan your paper or mobile ticket at the entrance. Employees of the Van Gogh Museum are present for assistance.</span></li>
-<li style="display:none;"><span>You can enter the museum up to 30 minutes after your reserved starting time.</span></li>
-<li style="display:none;"><span>If you would like to visit with a group of 15 people or more, please instead use our <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit">group booking page</a>.</span></li>                            </ul>
-
+                            <li style="display:none;"><span>You can enter the museum up to 30 minutes after your reserved starting time.</span></li>
+                            <li style="display:none;"><span>If you would like to visit with a group of 15 people or more, please instead use our <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit">group booking page</a>.</span></li>
+                        </ul>
                         <h3>We accept the following methods of payment:</h3>
-
                         <ul class="icons-payment paymentmethods-datetime adyen">
                             <li class="i-maestro"></li>
                             <li class="i-visa"></li>
                             <li class="i-mc"></li>
                             <li class="i-amex"></li>
-
                             <li class="i-alipay"></li>
                             <li class="i-trustly" style="display: none;"></li>
                             <li class="i-wechatpay" style="display: none;"></li>
-                        <li class="i-cup" style="display: none;"></li>
-                        <li class="i-diners" style="display: none;"></li>
-                        <li class="i-discover" style="display: none;"></li>
-                        <li class="i-jcb" style="display: none;"></li>
+                            <li class="i-cup" style="display: none;"></li>
+                            <li class="i-diners" style="display: none;"></li>
+                            <li class="i-discover" style="display: none;"></li>
+                            <li class="i-jcb" style="display: none;"></li>
                         </ul>
                         <a class="ticket-info__more-options" href="#">More options <span class="icons icon-arrow-down"></span></a>
-
                     </div>
                 </div>
-
             </div>
         </section>
-        <footer class="footer">
-    
-        </footer>
+        <footer class="footer"></footer>
     </form>
-    
     <div id="dialogGroup" style="display: none;">
         <a href="#" class="close-button">Close</a>
         <p>If you would like to visit with a group of 15 people or more, please instead use</p>
@@ -287,7 +276,7 @@
     </div>
     <div id="dialogMMT" style="display: none;">
         <a href="#" class="close-button">Close</a>
-        <div id="MMTplayer" ></div>
+        <div id="MMTplayer"></div>
     </div>
     <div id="dialogDateMin" style="display: none;">
         <a href="#" class="close-button">Close</a>
@@ -318,13 +307,12 @@
     <script>
         $(function() {
             $("#datepicker").datepicker({
-                numberOfMonths: 2,
+                numberOfMonths: [1, 2],
                 minDate: ticketDateMin,
                 maxDate: ticketDateMax,
                 beforeShowDay: function(date) {
                     var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                    var soldout = soldoutDays.indexOf(string) !== -1;
-                    return [disabledDates.indexOf(string) == -1, soldout ? "soldout" : ""];
+                    return [disabledDates.indexOf(string) == -1];
                 },
                 onSelect: function(dateText, inst) {
                     onDatepickerOption(dateText);
@@ -333,23 +321,5 @@
             $('#timeslotsTable').DataTable();
         });
     </script>
-    <style>
-        .ui-datepicker {
-            width: 100%;
-        }
-        .ui-datepicker td a {
-            display: block;
-            text-align: center;
-            padding: .2em;
-        }
-        .ui-datepicker .soldout a {
-            background: #f00;
-            color: #fff;
-        }
-        .ui-datepicker-calendar tr {
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
 </body>
 </html>
