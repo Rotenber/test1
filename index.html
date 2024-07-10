@@ -110,7 +110,7 @@
             </div>
         </div>
     </header>
-    <form id="gt" method="post" action="en/tickets.html">
+    <form id="gt" method="post" action="tickets.html">
         <nav class="nav-steps fixed-bottom">
             <div class="container">
                 <div class="zone">
@@ -128,11 +128,11 @@
                             <p>4. <span class="hidden-xs">Payment</span></p>
                         </div>
                         <div class="step" id="navIndex1">
-                            <p><a href="en/index.html">Index 1</a></p>
+                            <p><a href="index.html">Index 1</a></p>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 ticket-button mobile">
-                        <a href="en/tickets.html" class="button btn-arrow-right btn-sec" onclick="redirectToTickets()">
+                        <a href="tickets.html" class="button btn-arrow-right btn-sec" onclick="redirectToTickets(event)">
                             <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
                         </a>
                     </div>
@@ -330,9 +330,9 @@
             });
         });
 
-        function redirectToTickets() {
-            window.location.href = 'en/tickets.html';
-            window.location.reload();
+        function redirectToTickets(event) {
+            event.preventDefault(); // предотвращает поведение по умолчанию
+            window.location.href = 'tickets.html';
         }
     </script>
 </body>
