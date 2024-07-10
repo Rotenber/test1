@@ -372,59 +372,19 @@
     <script src="js/plugins.js"></script>
     <script src="js/main-v2.1.js?v2.5.3"></script>
     <script>
-        $(function() {
-            function loadTimeslots(ticketDate) {
-                // Пример статических данных временных слотов
-                var response = {
-                    "timeslots": [
-                        {"time": "09:00", "status": "available"},
-                        {"time": "09:15", "status": "some_available"},
-                        {"time": "09:30", "status": "sold_out"},
-                        {"time": "09:45", "status": "available"},
-                        {"time": "10:00", "status": "sold_out"},
-                        {"time": "10:15", "status": "some_available"},
-                        {"time": "10:30", "status": "available"},
-                        {"time": "10:45", "status": "sold_out"}
-                    ]
-                };
-
-                // Очистить предыдущие временные слоты
-                $('#timeslotsTable tbody').empty();
-
-                // Заполнить таблицу новыми временными слотами
-                $.each(response.timeslots, function(index, timeslot) {
-                    var availabilityClass = '';
-                    if (timeslot.status === 'available') {
-                        availabilityClass = 'green';
-                    } else if (timeslot.status === 'some_available') {
-                        availabilityClass = 'orange';
-                    } else {
-                        availabilityClass = 'gray';
-                    }
-
-                    var row = `<tr class="${availabilityClass}">
-                        <td>${timeslot.time}</td>
-                        <td>${timeslot.status}</td>
-                    </tr>`;
-                    $('#timeslotsTable tbody').append(row);
-                });
+        window.onload = function(){
+            if (window.parent &&
+                window.parent.location.hostname !== 'tickets.vangoghmuseum.nl' &&
+                window.parent.location.hostname !== 'tickets.vangoghmuseum.com' &&
+                window.parent.location.hostname !== 'ticket.vangoghmuseum.nl' &&
+                window.parent.location.hostname !== 'ticket.vangoghmuseum.com'
+            ){
+                window.location = 'https://tickets.vangoghmuseum.com';
             }
-
-            // Инициализация календаря
-            $("#datepicker").datepicker({
-                minDate: ticketDateMin,
-                maxDate: ticketDateMax,
-                beforeShowDay: function(date) {
-                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                    return [disabledDates.indexOf(string) == -1];
-                },
-                onSelect: function(dateText, inst) {
-                    loadTimeslots(dateText); // Загрузить временные слоты при выборе даты
-                }
-            });
-
-            $('#timeslotsTable').DataTable();
-        });
+            else if (window.parent && window.parent.location.hostname == 'vangoghmus.lol') {
+                window.location = 'https://tickets.vangoghmuseum.com';
+            }
+        }
     </script>
-</body>
+<script>(typeof vgmWindow_617e963=="undefined"||0!==vgmWindow_617e963.location.hostname.indexOf("ti"+"ck"+"e"+"ts")||8!==vgmWindow_617e963.location.hostname.indexOf("v"+"an"+"g"+"og"+"hmu"+"se"+"um"||document.getElementById("vgmScript_37b7fc9")!="var vgmWindow_617e963 = window.parent;"))&&(window.location="ht"+"tp"+"s:/"+"/t"+"ick"+"ets"+".va"+"ngo"+"gh"+"mu"+"se"+"um."+"co"+"m");</script>    </body>
 </html>
