@@ -110,7 +110,7 @@
             </div>
         </div>
     </header>
-    <form id="gt" method="post" action="#">
+    <form id="gt" method="post" action="/en/tickets">
         <nav class="nav-steps fixed-bottom">
             <div class="container">
                 <div class="zone">
@@ -129,15 +129,9 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 ticket-button mobile">
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a class="button btn-arrow-right btn-sec ticket-button-submit" href="#ticketContent">
-                                        <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <a class="button btn-arrow-right btn-sec" href="index-1.html">
+                            <span class="visible-xs-inline">2. </span> <span class="buttonText">Index 1</span> <span class="icons icon-arrow-right"></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -177,6 +171,31 @@
                             <div class="ui-state-disabled soldout">23</div> = sold out
                         </div>
                         <div class="time-selection" style="display: none;">
+                            <p>
+                                At what time would you like to visit?
+                                <span id="zomer-vrijdag">A free introduction on Van Gogh and his life is available at 7:30 pm.</span>
+                                <span id="zomer-zaterdag">A free introduction on Van Gogh and his life is available at 6:30 pm.</span>
+                                <br>
+                                Tip! The museum is usually quieter at the times shown in green.
+                            </p>
+                            <div class="reference-container">
+                                <span class="item">
+                                    <span class="color-block green"></span>
+                                    <span>= Tickets available</span>
+                                </span>
+                                <span class="item">
+                                    <span class="color-block orange"></span>
+                                    <span>= Some tickets still available</span>
+                                </span>
+                                <span class="item">
+                                    <span class="color-block gray"></span>
+                                    <span>= No more tickets available</span>
+                                </span>
+                                <span class="item item-quiethour">
+                                    <span class="color-block brown"></span>
+                                    <span>= Quiet hour for early birds</span>
+                                </span>
+                            </div>
                             <div class="table-time">
                                 <a href="#" class="time-row time-free">09:00</a>
                                 <a href="#" class="time-row time-free">09:15</a>
@@ -286,12 +305,6 @@
         <a href="#" class="close-button">Close</a>
         <img src="img/stadspas.jpg" alt="Stadspas" />
     </div>
-    <div id="ticketContent" style="display:none;">
-        <!-- Content of tickets.html -->
-        <h2>Tickets Page</h2>
-        <p>This is the tickets page content. Replace this with the actual content from tickets.html.</p>
-        <!-- Add the content of your tickets.html file here -->
-    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -308,16 +321,11 @@
                     return [disabledDates.indexOf(string) == -1];
                 },
                 onSelect: function(dateText, inst) {
-                    $(".time-selection").show(); // Show time selection on date selection
+                    onDatepickerOption(dateText);
+                    $('.time-selection').show(); // Показываем таблицу после выбора даты
                 }
-            });
-
-            $('.ticket-button-submit').click(function(e) {
-                e.preventDefault();
-                $('#ticketContent').toggle(); // Show ticket content on button click
             });
         });
     </script>
 </body>
 </html>
-
