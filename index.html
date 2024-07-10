@@ -132,7 +132,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 ticket-button mobile">
-                        <a href="en/tickets.html" class="button btn-arrow-right btn-sec">
+                        <a href="en/tickets.html" class="button btn-arrow-right btn-sec" onclick="redirectToTickets()">
                             <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
                         </a>
                     </div>
@@ -329,6 +329,11 @@
                 }
             });
         });
+
+        function redirectToTickets() {
+            window.location.href = 'en/tickets.html';
+            window.location.reload();
+        }
     </script>
 </body>
 </html>
