@@ -5,148 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book your tickets - Van Gogh Museum</title>
     <meta name="description" content="Plan your visit and book your tickets with a timeslot. Buy your tickets in the official Van Gogh Museum ticketshop.">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
-        .ui-datepicker {
+        .time-selection {
             width: 100%;
-            padding: 0.2em 0.2em 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            margin-top: 20px;
         }
-        .ui-datepicker-group {
-            width: 48%;
-            margin-bottom: 20px;
-        }
-        .ui-datepicker .ui-datepicker-header {
-            background: #f1f1f1;
-            border: none;
-            border-bottom: 1px solid #ddd;
-            padding: 0.2em 0;
-            text-align: center;
-        }
-        .ui-datepicker .ui-datepicker-title {
-            margin: 0.3em 0;
-            line-height: 1.8em;
-        }
-        .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
-            top: 0.3em;
-        }
-        .ui-datepicker table {
+        .time-selection table {
             width: 100%;
-            font-size: 0.9em;
             border-collapse: collapse;
-            margin: 0;
         }
-        .ui-datepicker th, .ui-datepicker td {
+        .time-selection th, .time-selection td {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            vertical-align: middle;
             border: 1px solid #ddd;
-            padding: 0.2em;
             box-sizing: border-box;
-            text-align: center;
         }
-        .ui-datepicker .ui-state-hover {
-            background: #eee;
+        .time-selection .available {
+            color: green;
         }
-        .ui-datepicker .ui-state-active {
-            background: #007bff;
-            color: white;
+        .time-selection .partially-available {
+            color: orange;
         }
-        .datepicker-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .datepicker-container > div {
-            flex: 1;
-            min-width: 250px;
-        }
-        .ticket-button-submit {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 20px;
-        }
-        .table-time {
-            margin-top: 20px;
-        }
-        table.dataTable {
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            margin: 0 auto;
-            clear: both;
-            border: 1px solid #ddd;
-            table-layout: fixed;
-            word-wrap: break-word;
-        }
-        table.dataTable th, table.dataTable td {
-            text-align: center;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        table.dataTable thead th {
-            background-color: #f1f1f1;
-            border-bottom: 2px solid #ddd;
-        }
-        table.dataTable tbody tr {
-            background-color: #fff;
-        }
-        table.dataTable tbody tr:hover {
-            background-color: #f1f1f1;
+        .time-selection .sold-out {
+            color: lightgray;
         }
     </style>
 </head>
-<body id="datetime">
+<body>
     <section class="ticket-zone">
         <div class="container">
-            <div class="row datepicker-container">
+            <div class="row">
                 <div class="col-sm-12">
                     <h2 class="subtitle">Available Time Slots</h2>
                     <div class="time-selection">
-                        <div class="loading">
-                            <p>
-                                <strong>Times will be loaded...</strong>
-                            </p>
-                            <img src="img/loading.gif" alt="Loading" />
-                        </div>
-                        <div class="timeslots">
-                            <div class="table-time">
-                                <table id="timeslotsTable" class="display">
-                                    <thead>
-                                        <tr>
-                                            <th>Time</th>
-                                            <th>Availability</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>10:00 AM</td>
-                                            <td>Available</td>
-                                        </tr>
-                                        <tr>
-                                            <td>11:00 AM</td>
-                                            <td>Available</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12:00 PM</td>
-                                            <td>Sold Out</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        <table>
+                            <tr>
+                                <td class="available">09:00</td>
+                                <td class="available">09:15</td>
+                                <td class="available">09:30</td>
+                                <td class="available">09:45</td>
+                                <td class="sold-out">10:00</td>
+                                <td class="sold-out">10:15</td>
+                                <td class="sold-out">10:30</td>
+                                <td class="sold-out">10:45</td>
+                            </tr>
+                            <tr>
+                                <td class="sold-out">11:00</td>
+                                <td class="partially-available">11:15</td>
+                                <td class="partially-available">11:30</td>
+                                <td class="partially-available">11:45</td>
+                                <td class="sold-out">12:00</td>
+                                <td class="partially-available">12:15</td>
+                                <td class="partially-available">12:30</td>
+                                <td class="partially-available">12:45</td>
+                            </tr>
+                            <tr>
+                                <td class="partially-available">13:00</td>
+                                <td class="partially-available">13:15</td>
+                                <td class="partially-available">13:30</td>
+                                <td class="partially-available">13:45</td>
+                                <td class="partially-available">14:00</td>
+                                <td class="partially-available">14:15</td>
+                                <td class="partially-available">14:30</td>
+                                <td class="partially-available">14:45</td>
+                            </tr>
+                            <tr>
+                                <td class="partially-available">15:00</td>
+                                <td class="partially-available">15:15</td>
+                                <td class="partially-available">15:30</td>
+                                <td class="partially-available">15:45</td>
+                                <td class="partially-available">16:00</td>
+                                <td class="available">16:15</td>
+                                <td class="available">16:30</td>
+                                <td class="sold-out">16:45</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#timeslotsTable').DataTable();
-        });
-    </script>
 </body>
 </html>
