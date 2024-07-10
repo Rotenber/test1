@@ -132,8 +132,14 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a class="button btn-arrow-right btn-sec ticket-button-submit" href="tickets.html">
+                                    <a class="button btn-arrow-right btn-sec ticket-button-submit" href="#">
                                         <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
+                                        <div id="ticketContent" style="display:none;">
+                                            <!-- Content of tickets.html -->
+                                            <h2>Tickets Page</h2>
+                                            <p>This is the tickets page content. Replace this with the actual content from tickets.html.</p>
+                                            <!-- Add the content of your tickets.html file here -->
+                                        </div>
                                     </a>
                                 </li>
                             </ul>
@@ -304,6 +310,11 @@
                 onSelect: function(dateText, inst) {
                     $(".time-selection").show(); // Show time selection on date selection
                 }
+            });
+
+            $('.ticket-button-submit').click(function(e) {
+                e.preventDefault();
+                $('#ticketContent').toggle(); // Show ticket content on button click
             });
         });
     </script>
