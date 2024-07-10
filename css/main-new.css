@@ -2177,7 +2177,9 @@ aside {
 }
 
 .ui-datepicker {
-    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .ui-datepicker-calendar thead tr,
@@ -2263,9 +2265,10 @@ td.ui-datepicker-today a {
 }
 
 .ui-datepicker-group {
-    float: left;
-    width: 280px;
+    width: auto;
+    flex: 1;
 }
+
 
 .ui-datepicker-row-break {
     clear: both;
@@ -2275,7 +2278,7 @@ td.ui-datepicker-today a {
     margin-right: 50px;
 }
 
-.ui-datepicker-multi .ui-datepicker-group table {
+.ui-datepicker-group table {
     width: 100%;
 }
 
