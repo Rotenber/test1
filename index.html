@@ -20,11 +20,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6841274/675468/css/fonts.css" />
+    <link rel="stylesheet" href="css/jquery-ui.css"> <!-- Updated link to jquery-ui.css -->
     <link rel="stylesheet" href="css/main-new.css?v1.1.0.10">
     <script id="vgmScript_37b7fc9">var vgmWindow_617e963 = window.parent;</script>
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="js/jquery.min-v1.js"></script> <!-- Updated link to jquery.min-v1.js -->
+    <script src="js/jquery.scrollTo.min.js"></script> <!-- Updated link to jquery.scrollTo.min.js -->
+    <script src="js/jquery-ui.min.js"></script> <!-- Updated link to jquery-ui.min.js -->
+    <script src="js/main-v2.1.js?v2.5.3"></script> <!-- Updated link to main-v2.1.js -->
     <script>
         var language = 'en';
         var jsDomain = '';
@@ -180,165 +183,21 @@
             </div> <!-- logo -->
         </div> <!-- logo-zone -->
 
-        <div class="container">
-            <div class="row">
-                <h1>Book your tickets</h1>
-            </div>
-        </div> <!-- container -->
+        <div class="banner">
+            <div class="banner-text">
+                <strong>Plan your visit and book your tickets with a timeslot. Also for Museumkaart holders.</strong>
+            </div> <!-- banner-text -->
+        </div> <!-- banner -->
+    </header> <!-- header -->
 
-    </header>
-    <form id="gt" method="post" action="/en/tickets">
-        <nav class="nav-steps fixed-bottom">
-            <div class="container">
-                <div class="zone">
-                    <div class="col-xs-12 col-sm-9 steps">
-                        <div class="step active" id="navDateTime">
-                            <p>1. <span class="hidden-xs">Plan your visit</span></p>
-                        </div>
-                        <div class="step" id="navTicketsSummary">
-                            <p>2. <span class="hidden-xs">Tickets</span></p>
-                        </div>
-                        <div class="step" id="navYourInformation">
-                            <p>3. <span class="hidden-xs">Your information</span></p>
-                        </div>
-                        <div class="step" id="navPayment">
-                            <p>4. <span class="hidden-xs">Payment</span></p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 ticket-button mobile">
-                        <a class="button btn-arrow-right btn-sec">
-                            <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <section class="ticket-zone">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-7-datepicker">
-                        <p><strong>Plan your visit and book your ticket with start time. Also for Museumkaart holders.<br><br></strong></p><br />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-7-datepicker">
-                        <h2 class="subtitle">When would you like to visit the <span class="vangoghmuseum">Van Gogh Museum</span>?</h2>
-                        <div class="people-select-box">
-                            <span>How many people are there in your group?</span>
-                            <div class="select-style">
-                                <select name="people-select" id="people-select">
-                                    <option value="1" selected="selected">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
-                            </div>
-                        </div>
+    <div class="page-section">
+        <div class="booking-section">
+            <div class="calendar">
+                <!-- Calendar content goes here -->
+            </div> <!-- calendar -->
+        </div> <!-- booking-section -->
+    </div> <!-- page-section -->
 
-                        <div class="form-datepicker notranslate">
-                            <!-- datepicker -->
-                            <div id="datepicker" class="notranslate"></div>
-                            <input type="hidden" name="ticketTime" id="ticketTime" value="" />
-                            <input type="hidden" name="overflowTime" id="overflowTime" value="" />
-
-                            <!-- datepicker for mobile -->
-                            <div class="visible-xs-block notranslate">
-                                <div class="date-group">
-                                    <input name="ticketDate" id="ticketDate" type="date" class="date-input notranslate" value="2024-07-10" min="2024-07-10" max="2024-10-31">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ticket-info">
-            <div class="container">
-                <div class="zone">
-                    <div class="col-sm-12 col-md-7">
-                        <h3 class="h3-first">Please note:</h3>
-                        <ul class="ticket-info__list">
-                            <li><span>Scan your ticket at the door. You can scan your paper or mobile ticket at the entrance. Employees of the Van Gogh Museum are present for assistance.</span></li>
-                            <li style="display:none;"><span>You can enter the museum up to 30 minutes after your reserved starting time.</span></li>
-                            <li style="display:none;"><span>If you would like to visit with a group of 15 people or more, please instead use our <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit">group booking page</a>.</span></li>
-                        </ul>
-
-                        <h3>We accept the following methods of payment:</h3>
-
-                        <ul class="icons-payment paymentmethods-datetime adyen">
-                            <li class="i-maestro"></li>
-                            <li class="i-visa"></li>
-                            <li class="i-mc"></li>
-                            <li class="i-amex"></li>
-
-                            <li class="i-alipay"></li>
-                            <li class="i-trustly" style="display: none;"></li>
-                            <li class="i-wechatpay" style="display: none;"></li>
-                            <li class="i-cup" style="display: none;"></li>
-                            <li class="i-diners" style="display: none;"></li>
-                            <li class="i-discover" style="display: none;"></li>
-                            <li class="i-jcb" style="display: none;"></li>
-                        </ul>
-                        <a class="ticket-info__more-options" href="#">More options <span class="icons icon-arrow-down"></span></a>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <footer class="footer">
-
-        </footer>
-    </form>
-
-    <div id="dialogGroup" style="display: none;">
-        <a href="#" class="close-button">Close</a>
-        <p>If you would like to visit with a group of 15 people or more, please instead use</p>
-        <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit" class="button">our group booking page</a>
-    </div>
-    <div id="dialogMMT" style="display: none;">
-        <a href="#" class="close-button">Close</a>
-        <div id="MMTplayer"></div>
-    </div>
-    <div id="dialogDateMin" style="display: none;">
-        <a href="#" class="close-button">Close</a>
-        <p>The date you have selected is located in the past.</p>
-    </div>
-    <div id="dialogDateMax" style="display: none;">
-        <a href="#" class="close-button">Close</a>
-        <p>The date you have selected is located outside the calendar.</p>
-    </div>
-    <div id="iamsterdam-card-dialog" style="display:none;">
-        <a href="#" class="close-button">Close</a>
-        <img src="img/en.iamsterdam-card.png" alt="Iamsterdam Card" />
-    </div>
-    <div id="museumkaart-card-dialog" style="display:none;">
-        <a href="#" class="close-button">Close</a>
-        <img src="img/museumkaart.png" alt="Museumkaart" />
-    </div>
-    <div id="stadspas-card-dialog" style="display:none;">
-        <a href="#" class="close-button">Close</a>
-        <img src="img/stadspas.jpg" alt="Stadspas" />
-    </div>
-    <script src="js/jquery.min-v1.js"></script>
-    <script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main-v2.1.js?v2.5.3"></script>
-    <script>
-        $(document).ready(function() {
-            $("#datepicker").datepicker({
-                minDate: new Date(2024, 6, 10),
-                maxDate: new Date(2024, 9, 31),
-                beforeShowDay: function(date) {
-                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                    return [disabledDates.indexOf(string) == -1]
-                }
-            });
-        });
-    </script>
+    <!-- Scripts for analytics and additional functionality -->
 </body>
 </html>
