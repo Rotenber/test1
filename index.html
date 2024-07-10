@@ -15,63 +15,64 @@
     <link rel="stylesheet" href="css/main-new.css?v1.1.0.10">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
-.ui-datepicker {
-    width: 100%;
-    padding: 0.2em 0.2em 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.ui-datepicker-group {
-    width: 48%;
-}
-.ui-datepicker .ui-datepicker-header {
-    background: #f1f1f1;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    padding: 0.2em 0;
-    text-align: center;
-}
-.ui-datepicker .ui-datepicker-title {
-    margin: 0.3em 0;
-    line-height: 1.8em;
-}
-.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
-    top: 0.3em;
-}
-.ui-datepicker table {
-    width: 100%;
-    font-size: 0.9em;
-    border-collapse: collapse;
-    margin: 0;
-}
-.ui-datepicker th, .ui-datepicker td {
-    border: 1px solid #ddd;
-    padding: 0.2em;
-    box-sizing: border-box;
-    text-align: center;
-}
-.ui-datepicker .ui-state-hover {
-    background: #eee;
-}
-.ui-datepicker .ui-state-active {
-    background: #007bff;
-    color: white;
-}
-.datepicker-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-.datepicker-container > div {
-    flex: 1;
-    min-width: 250px;
-}
-.ticket-button-submit {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-}
+        .ui-datepicker {
+            width: 100%;
+            padding: 0.2em 0.2em 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .ui-datepicker-group {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+        .ui-datepicker .ui-datepicker-header {
+            background: #f1f1f1;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            padding: 0.2em 0;
+            text-align: center;
+        }
+        .ui-datepicker .ui-datepicker-title {
+            margin: 0.3em 0;
+            line-height: 1.8em;
+        }
+        .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+            top: 0.3em;
+        }
+        .ui-datepicker table {
+            width: 100%;
+            font-size: 0.9em;
+            border-collapse: collapse;
+            margin: 0;
+        }
+        .ui-datepicker th, .ui-datepicker td {
+            border: 1px solid #ddd;
+            padding: 0.2em;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .ui-datepicker .ui-state-hover {
+            background: #eee;
+        }
+        .ui-datepicker .ui-state-active {
+            background: #007bff;
+            color: white;
+        }
+        .datepicker-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .datepicker-container > div {
+            flex: 1;
+            min-width: 250px;
+        }
+        .ticket-button-submit {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
     </style>
     <script id="vgmScript_a9d7138">var vgmWindow_8b72900 = window.parent;</script>
     <script src="js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -375,21 +376,22 @@
     <script src="js/plugins.js"></script>
     <script src="js/main-v2.1.js?v2.5.3"></script>
     <script>
-$(function() {
-    $("#datepicker").datepicker({
-        numberOfMonths: [1, 2], // [rows, columns]
-        minDate: ticketDateMin,
-        maxDate: ticketDateMax,
-        beforeShowDay: function(date) {
-            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [disabledDates.indexOf(string) == -1];
-        },
-        onSelect: function(dateText, inst) {
-            onDatepickerOption(dateText);
-        }
-    });
-    $('#timeslotsTable').DataTable();
-});
+        $(function() {
+            $("#datepicker").datepicker({
+                numberOfMonths: [1, 2], // [rows, columns]
+                minDate: ticketDateMin,
+                maxDate: ticketDateMax,
+                beforeShowDay: function(date) {
+                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    return [disabledDates.indexOf(string) == -1];
+                },
+                onSelect: function(dateText, inst) {
+                    onDatepickerOption(dateText);
+                }
+            });
+            $('#timeslotsTable').DataTable();
+        });
     </script>
 </body>
 </html>
+
