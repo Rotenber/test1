@@ -2093,9 +2093,9 @@ aside {
    font-family: "Gotham Rounded A", "Gotham Rounded B";
 }
 
-.ui-datepicker
-{
-	position: relative;
+.ui-datepicker-group {
+    width: auto; /* Автоматическая ширина для всех групп */
+    flex: 1; /* Равномерное распределение ширины между группами */
 }
 
 .ui-datepicker-calendar thead tr ,.ui-datepicker-calendar tbody tr
@@ -2155,9 +2155,10 @@ aside {
 }
 
 .ui-datepicker-calendar
-{
-	width: 100px;
-    height: 200px;
+    display: flex;
+    flex-direction: row; /* Устанавливаем горизонтальное расположение */
+    flex-wrap: nowrap; /* Запрещаем перенос строк */
+    justify-content: space-between; /* Равномерное распределение пространства между элементами */
 }
 
 td.ui-datepicker-current-day a
@@ -2190,12 +2191,10 @@ td.ui-datepicker-today a
     width: 99.8%;
 }
 
-.ui-datepicker-group
-{
-    float: left;
-    width: 280px;
+.ui-datepicker-group {
+    width: auto; /* Автоматическая ширина для всех групп */
+    flex: 1; /* Равномерное распределение ширины между группами */
 }
-
 .ui-datepicker-row-break
 {
 	clear: both;
