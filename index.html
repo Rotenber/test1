@@ -291,5 +291,57 @@
 
             </div>
         </section>
+        <footer class="footer">
+    
+        </footer>
+    </form>
+    <div id="dialogGroup" style="display: none;">
+        <a href="#" class="close-button">Close</a>
+        <p>If you would like to visit with a group of 15 people or more, please instead use</p>
+        <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit" class="button">our group booking page</a>
+    </div>
+    <div id="dialogMMT" style="display: none;">
+        <a href="#" class="close-button">Close</a>
+        <div id="MMTplayer" ></div>
+    </div>
+    <div id="dialogDateMin" style="display: none;">
+        <a href="#" class="close-button">Close</a>
+        <p>The date you have selected is located in the past.</p>
+    </div>
+    <div id="dialogDateMax" style="display: none;">
+        <a href="#" class="close-button">Close</a>
+        <p>The date you have selected is located outside the calendar.</p>
+    </div>
+    <div id="iamsterdam-card-dialog" style="display:none;">
+        <a href="#" class="close-button">Close</a>
+        <img src="img/en.iamsterdam-card.png" alt="Iamsterdam Card" />
+    </div>
+    <div id="museumkaart-card-dialog" style="display:none;">
+        <a href="#" class="close-button">Close</a>
+        <img src="img/museumkaart.png" alt="Museumkaart" />
+    </div>
+    <div id="stadspas-card-dialog" style="display:none;">
+        <a href="#" class="close-button">Close</a>
+        <img src="img/stadspas.jpg" alt="Stadspas" />
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#datepicker").datepicker({
+                numberOfMonths: [1, 2], // [rows, columns]
+                minDate: new Date(2024, 6, 9),
+                maxDate: new Date(2024, 9, 31),
+                beforeShowDay: function(date) {
+                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    return [disabledDates.indexOf(string) == -1];
+                },
+                onSelect: function(dateText, inst) {
+                    onDatepickerOption(dateText);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
