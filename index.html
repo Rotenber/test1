@@ -9,123 +9,95 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6841274/675468/css/fonts.css" />
+    <link rel="stylesheet" href="css/main-new.css?v1.1.0.10">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <style>
-        .ui-datepicker {
-            width: 100%;
-            padding: 0.2em 0.2em 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+    <script id="vgmScript_a9d7138">var vgmWindow_8b72900 = window.parent;</script>
+    <script src="js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script>
+        var language = 'en';
+        var jsDomain = '';
+        var ticketDateMin = new Date(2024, 6, 09);
+        var ticketDateMax = new Date(2024, 9, 31);
+        var disabledDays = [];
+        var disabledDates = ["2021-11-29","2021-12-06","2021-12-13","2022-01-17","2022-01-24","2022-01-31","2022-02-07","2022-02-14"];
+        var soldoutDays = ["2024-07-09","2024-07-10","2024-07-11","2024-07-12","2024-07-13","2024-07-14","2024-07-16","2024-07-17"];
+        var openDays = [];
+        var quiethourDays = [""];
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        var dataLayer = [{
+        'page' : {
+           'language': 'en'
+          }
+        }];
+        dataLayer.push({
+         'event': 'vgm_tickets',
+         'eventCategory': 'Tickets regulier',
+         'eventAction': 'Aantal personen',
+         'eventLabel': 'en',
+         'virtualURL': '/tickets/stap-1/aantal',
+         'virtualTitle': 'Stap 1 - Aantal personen'
+        });
+        
+        function onDatepickerOption(datepickerOption) {
+            dataLayer.push({
+             'event': 'vgm_tickets',
+             'eventCategory': 'Tickets regulier',
+             'eventAction': 'Kies datum',
+             'eventLabel': 'en',
+             'virtualURL': '/tickets/stap-1/datum',
+             'virtualTitle': 'Stap 1 - Kies datum'
+            });
         }
-        .ui-datepicker-group {
-            width: 48%;
-            margin-bottom: 20px;
+        function onTimeslotOption(timeslotOption) {
+            dataLayer.push({
+             'event': 'vgm_tickets',
+             'eventCategory': 'Tickets regulier',
+             'eventAction': 'Kies tijdstip',
+             'eventLabel': 'en',
+             'virtualURL': '/tickets/stap-1/tijdstip',
+             'virtualTitle': 'Stap 1 - Kies tijdstip'
+            });
         }
-        .ui-datepicker .ui-datepicker-header {
-            background: #f1f1f1;
-            border: none;
-            border-bottom: 1px solid #ddd;
-            padding: 0.2em 0;
-            text-align: center;
-        }
-        .ui-datepicker .ui-datepicker-title {
-            margin: 0.3em 0;
-            line-height: 1.8em;
-        }
-        .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
-            top: 0.3em;
-        }
-        .ui-datepicker table {
-            width: 100%;
-            font-size: 0.9em;
-            border-collapse: collapse;
-            margin: 0;
-        }
-        .ui-datepicker th, .ui-datepicker td {
-            border: 1px solid #ddd;
-            padding: 0.2em;
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .ui-datepicker .ui-state-hover {
-            background: #eee;
-        }
-        .ui-datepicker .ui-state-active {
-            background: #007bff;
-            color: white;
-        }
-        .datepicker-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .datepicker-container > div {
-            flex: 1;
-            min-width: 250px;
-        }
-        .ticket-button-submit {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 20px;
-        }
-        .table-time {
-            margin-top: 20px;
-        }
-        table.dataTable {
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            margin: 0 auto;
-            clear: both;
-            border: 1px solid #ddd;
-            table-layout: fixed;
-            word-wrap: break-word;
-        }
-        table.dataTable th, table.dataTable td {
-            text-align: center;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        table.dataTable thead th {
-            background-color: #f1f1f1;
-            border-bottom: 2px solid #ddd;
-        }
-        table.dataTable tbody tr {
-            background-color: #fff;
-        }
-        table.dataTable tbody tr:hover {
-            background-color: #f1f1f1;
-        }
-        .time-selection {
-            width: 100%;
-            margin-top: 20px;
-        }
-        .time-selection table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .time-selection th, .time-selection td {
-            width: 50px;
-            height: 30px;
-            text-align: center;
-            vertical-align: middle;
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-        }
-        .time-selection .available {
-            color: green;
-        }
-        .time-selection .partially-available {
-            color: orange;
-        }
-        .time-selection .sold-out {
-            color: lightgray;
-        }
-    </style>
+        
+        ga('create', 'UA-16585726-3', 'auto', {'name': 'globalticketTracker'});
+        ga('set', 'anonymizeIp', true);
+        ga('globalticketTracker.send', 'pageview');
+    </script>
+    <!-- Start Visual Website Optimizer Asynchronous Code -->
+    <script type='text/javascript'>
+    var _vwo_code=(function(){
+    var account_id=86923,
+    settings_tolerance=2000,
+    library_tolerance=2500,
+    use_existing_jquery=false,
+    // DO NOT EDIT BELOW THIS LINE
+    f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+    </script>
+    <!-- End Visual Website Optimizer Asynchronous Code -->
 </head>
-<body>
+<body id="datetime">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WT7WGS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WT7WGS');</script>
+    <!-- End Google Tag Manager -->
+    <script src="//cdn.blueconic.net/vangoghmuseum.js"></script>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
     <header class="header amandelbloesem">
         <div class="logo-zone">
             <div class="logo">
@@ -138,7 +110,7 @@
             </div>
         </div>
     </header>
-    <form id="gt" method="post" action="/en/tickets">
+    <form id="gt" method="get" action="#">
         <nav class="nav-steps fixed-bottom">
             <div class="container">
                 <div class="zone">
@@ -157,9 +129,15 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 ticket-button mobile">
-                        <a class="button btn-arrow-right btn-sec">
-                            <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
-                        </a>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a class="button btn-arrow-right btn-sec ticket-button-submit" href="tickets.html">
+                                        <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -167,26 +145,21 @@
         <section class="ticket-zone">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 col-md-7-datepicker">
                         <p><strong>Plan your visit and book your ticket with start time. Also for Museumkaart holders.<br><br></strong></p><br/>
                     </div>
                 </div>
-                <div class="row datepicker-container">
-                    <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12 col-md-7-datepicker">
                         <h2 class="subtitle">When would you like to visit the <span class="vangoghmuseum">Van Gogh Museum</span>?</h2>
                         <div class="people-select-box">
                             <span>How many people are there in your group?</span>
                             <div class="select-style">
                                 <select name="people-select" id="people-select">
-                                    <option value="1" selected="selected">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
+                                <option value="1" selected="selected">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>                                    </select>
                             </div>
                         </div>
+
                         <div class="form-datepicker notranslate">
                             <!-- datepicker -->
                             <div id="datepicker" class="notranslate"></div>
@@ -200,72 +173,52 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row datepicker-container">
-                    <div class="col-sm-12">
-                        <h2 class="subtitle">Available Time Slots</h2>
-                        <div class="time-selection">
-                            <table id="timeslotsTable" class="display">
-                                <thead>
-                                    <tr>
-                                        <th>Time</th>
-                                        <th>Availability</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="available">09:00</td>
-                                        <td class="available">09:15</td>
-                                        <td class="available">09:30</td>
-                                        <td class="available">09:45</td>
-                                        <td class="sold-out">10:00</td>
-                                        <td class="sold-out">10:15</td>
-                                        <td class="sold-out">10:30</td>
-                                        <td class="sold-out">10:45</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="sold-out">11:00</td>
-                                        <td class="partially-available">11:15</td>
-                                        <td class="partially-available">11:30</td>
-                                        <td class="partially-available">11:45</td>
-                                        <td class="sold-out">12:00</td>
-                                        <td class="partially-available">12:15</td>
-                                        <td class="partially-available">12:30</td>
-                                        <td class="partially-available">12:45</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="partially-available">13:00</td>
-                                        <td class="partially-available">13:15</td>
-                                        <td class="partially-available">13:30</td>
-                                        <td class="partially-available">13:45</td>
-                                        <td class="partially-available">14:00</td>
-                                        <td class="partially-available">14:15</td>
-                                        <td class="partially-available">14:30</td>
-                                        <td class="partially-available">14:45</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="partially-available">15:00</td>
-                                        <td class="partially-available">15:15</td>
-                                        <td class="partially-available">15:30</td>
-                                        <td class="partially-available">15:45</td>
-                                        <td class="partially-available">16:00</td>
-                                        <td class="available">16:15</td>
-                                        <td class="available">16:30</td>
-                                        <td class="sold-out">16:45</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="date-soldout">
+                            <div class="ui-state-disabled soldout">23</div> = sold out
+                        </div>
+                        <div class="time-selection" style="display: none;">
+                            <div class="table-time">
+                                <a href="#" class="time-row time-free">09:00</a>
+                                <a href="#" class="time-row time-free">09:15</a>
+                                <a href="#" class="time-row time-free">09:30</a>
+                                <a href="#" class="time-row time-free">09:45</a>
+                                <a href="#" class="time-row time-free">10:00</a>
+                                <a href="#" class="time-row time-free">10:15</a>
+                                <a href="#" class="time-row time-free">10:30</a>
+                                <a href="#" class="time-row time-free">10:45</a>
+                                <a href="#" class="time-row time-free">11:00</a>
+                                <a href="#" class="time-row time-free">11:15</a>
+                                <a href="#" class="time-row time-free">11:30</a>
+                                <a href="#" class="time-row time-free">11:45</a>
+                                <a href="#" class="time-row time-free">12:00</a>
+                                <a href="#" class="time-row time-free">12:15</a>
+                                <a href="#" class="time-row time-free">12:30</a>
+                                <a href="#" class="time-row time-free">12:45</a>
+                                <a href="#" class="time-row time-free">13:00</a>
+                                <a href="#" class="time-row time-free">13:15</a>
+                                <a href="#" class="time-row time-free">13:30</a>
+                                <a href="#" class="time-row time-free">13:45</a>
+                                <a href="#" class="time-row time-ua">14:00</a>
+                                <a href="#" class="time-row time-free">14:15</a>
+                                <a href="#" class="time-row time-free">14:30</a>
+                                <a href="#" class="time-row time-free">14:45</a>
+                                <a href="#" class="time-row time-free">15:00</a>
+                                <a href="#" class="time-row time-free">15:15</a>
+                                <a href="#" class="time-row time-free">15:30</a>
+                                <a href="#" class="time-row time-free">15:45</a>
+                                <a href="#" class="time-row time-free">16:00</a>
+                                <a href="#" class="time-row time-free">16:15</a>
+                                <a href="#" class="time-row time-free">16:30</a>
+                                &nbsp;
+                            </div>
+                            <div class="overflow-container" style="display:none;">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row ticket-button-submit">
-                    <a class="button btn-arrow-right btn-sec ticket-button-submit">
-                        <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
-                    </a>
-                </div>
             </div>
         </section>
+
         <section class="ticket-info">
             <div class="container">
                 <div class="zone">
@@ -274,8 +227,7 @@
                         <ul class="ticket-info__list">
                             <li><span>Scan your ticket at the door. You can scan your paper or mobile ticket at the entrance. Employees of the Van Gogh Museum are present for assistance.</span></li>
                             <li style="display:none;"><span>You can enter the museum up to 30 minutes after your reserved starting time.</span></li>
-                            <li style="display:none;"><span>If you would like to visit with a group of 15 people or more, please instead use our <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit">group booking page</a>.</span></li>
-                        </ul>
+                            <li style="display:none;"><span>If you would like to visit with a group of 15 people or more, please instead use our <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit">group booking page</a>.</span></li>                            </ul>
 
                         <h3>We accept the following methods of payment:</h3>
 
@@ -301,9 +253,10 @@
             </div>
         </section>
         <footer class="footer">
-    
+
         </footer>
     </form>
+
     <div id="dialogGroup" style="display: none;">
         <a href="#" class="close-button">Close</a>
         <p>If you would like to visit with a group of 15 people or more, please instead use</p>
@@ -336,22 +289,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main-v2.1.js?v2.5.3"></script>
     <script>
-        $(document).ready(function() {
+        $(function() {
             $("#datepicker").datepicker({
-                numberOfMonths: [1, 2], // [rows, columns]
-                minDate: new Date(2024, 6, 9),
-                maxDate: new Date(2024, 9, 31),
+                minDate: ticketDateMin,
+                maxDate: ticketDateMax,
                 beforeShowDay: function(date) {
                     var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
                     return [disabledDates.indexOf(string) == -1];
                 },
                 onSelect: function(dateText, inst) {
-                    onDatepickerOption(dateText);
+                    $(".time-selection").show(); // Show time selection on date selection
                 }
             });
-            $('#timeslotsTable').DataTable();
         });
     </script>
 </body>
 </html>
+
