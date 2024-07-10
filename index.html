@@ -137,58 +137,125 @@
             </div>
         </div>
     </header>
-    <section class="ticket-zone">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2 class="subtitle">Available Time Slots</h2>
-                    <div class="time-selection">
-                        <table>
-                            <tr>
-                                <td class="available">09:00</td>
-                                <td class="available">09:15</td>
-                                <td class="available">09:30</td>
-                                <td class="available">09:45</td>
-                                <td class="sold-out">10:00</td>
-                                <td class="sold-out">10:15</td>
-                                <td class="sold-out">10:30</td>
-                                <td class="sold-out">10:45</td>
-                            </tr>
-                            <tr>
-                                <td class="sold-out">11:00</td>
-                                <td class="partially-available">11:15</td>
-                                <td class="partially-available">11:30</td>
-                                <td class="partially-available">11:45</td>
-                                <td class="sold-out">12:00</td>
-                                <td class="partially-available">12:15</td>
-                                <td class="partially-available">12:30</td>
-                                <td class="partially-available">12:45</td>
-                            </tr>
-                            <tr>
-                                <td class="partially-available">13:00</td>
-                                <td class="partially-available">13:15</td>
-                                <td class="partially-available">13:30</td>
-                                <td class="partially-available">13:45</td>
-                                <td class="partially-available">14:00</td>
-                                <td class="partially-available">14:15</td>
-                                <td class="partially-available">14:30</td>
-                                <td class="partially-available">14:45</td>
-                            </tr>
-                            <tr>
-                                <td class="partially-available">15:00</td>
-                                <td class="partially-available">15:15</td>
-                                <td class="partially-available">15:30</td>
-                                <td class="partially-available">15:45</td>
-                                <td class="partially-available">16:00</td>
-                                <td class="available">16:15</td>
-                                <td class="available">16:30</td>
-                                <td class="sold-out">16:45</td>
-                            </tr>
-                        </table>
+    <form id="gt" method="post" action="/en/tickets">
+        <nav class="nav-steps fixed-bottom">
+            <div class="container">
+                <div class="zone">
+                    <div class="col-xs-12 col-sm-9 steps">
+                        <div class="step active" id="navDateTime">
+                            <p>1. <span class="hidden-xs">Plan your visit</span></p>
+                        </div>
+                        <div class="step" id="navTicketsSummary">
+                            <p>2. <span class="hidden-xs">Tickets</span></p>
+                        </div>
+                        <div class="step" id="navYourInformation">
+                            <p>3. <span class="hidden-xs">Your information</span></p>
+                        </div>
+                        <div class="step" id="navPayment">
+                            <p>4. <span class="hidden-xs">Payment</span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 ticket-button mobile">
+                        <a class="button btn-arrow-right btn-sec">
+                            <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
+        <section class="ticket-zone">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p><strong>Plan your visit and book your ticket with start time. Also for Museumkaart holders.<br><br></strong></p><br/>
+                    </div>
+                </div>
+                <div class="row datepicker-container">
+                    <div class="col-sm-6">
+                        <h2 class="subtitle">When would you like to visit the <span class="vangoghmuseum">Van Gogh Museum</span>?</h2>
+                        <div class="people-select-box">
+                            <span>How many people are there in your group?</span>
+                            <div class="select-style">
+                                <select name="people-select" id="people-select">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-datepicker notranslate">
+                            <!-- datepicker -->
+                            <div id="datepicker" class="notranslate"></div>
+                            <input type="hidden" name="ticketTime" id="ticketTime" value="" />
+                            <input type="hidden" name="overflowTime" id="overflowTime" value="" />
+
+                            <!-- datepicker for mobile -->
+                            <div class="visible-xs-block notranslate">
+                                <div class="date-group">
+                                    <input name="ticketDate" id="ticketDate" type="date" class="date-input notranslate" value="2024-07-09" min="2024-07-09" max="2024-10-31">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row datepicker-container">
+                    <div class="col-sm-12">
+                        <h2 class="subtitle">Available Time Slots</h2>
+                        <div class="time-selection">
+                            <table>
+                                <tr>
+                                    <td class="available">09:00</td>
+                                    <td class="available">09:15</td>
+                                    <td class="available">09:30</td>
+                                    <td class="available">09:45</td>
+                                    <td class="sold-out">10:00</td>
+                                    <td class="sold-out">10:15</td>
+                                    <td class="sold-out">10:30</td>
+                                    <td class="sold-out">10:45</td>
+                                </tr>
+                                <tr>
+                                    <td class="sold-out">11:00</td>
+                                    <td class="partially-available">11:15</td>
+                                    <td class="partially-available">11:30</td>
+                                    <td class="partially-available">11:45</td>
+                                    <td class="sold-out">12:00</td>
+                                    <td class="partially-available">12:15</td>
+                                    <td class="partially-available">12:30</td>
+                                    <td class="partially-available">12:45</td>
+                                </tr>
+                                <tr>
+                                    <td class="partially-available">13:00</td>
+                                    <td class="partially-available">13:15</td>
+                                    <td class="partially-available">13:30</td>
+                                    <td class="partially-available">13:45</td>
+                                    <td class="partially-available">14:00</td>
+                                    <td class="partially-available">14:15</td>
+                                    <td class="partially-available">14:30</td>
+                                    <td class="partially-available">14:45</td>
+                                </tr>
+                                <tr>
+                                    <td class="partially-available">15:00</td>
+                                    <td class="partially-available">15:15</td>
+                                    <td class="partially-available">15:30</td>
+                                    <td class="partially-available">15:45</td>
+                                    <td class="partially-available">16:00</td>
+                                    <td class="available">16:15</td>
+                                    <td class="available">16:30</td>
+                                    <td class="sold-out">16:45</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ticket-button-submit">
+                    <a class="button btn-arrow-right btn-sec ticket-button-submit">
+                        <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
 </body>
 </html>
