@@ -30,7 +30,7 @@
     </script>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        (i[r.q=i[r.q||[]).push(arguments)},i[r.l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
         
@@ -110,32 +110,35 @@
             </div>
         </div>
     </header>
-    <form id="gt" method="post" action="/en/tickets">
-        <nav class="nav-steps fixed-bottom">
-            <div class="container">
-                <div class="zone">
-                    <div class="col-xs-12 col-sm-9 steps">
-                        <div class="step active" id="navDateTime">
-                            <p>1. <span class="hidden-xs">Plan your visit</span></p>
-                        </div>
-                        <div class="step" id="navTicketsSummary">
-                            <p>2. <span class="hidden-xs">Tickets</span></p>
-                        </div>
-                        <div class="step" id="navYourInformation">
-                            <p>3. <span class="hidden-xs">Your information</span></p>
-                        </div>
-                        <div class="step" id="navPayment">
-                            <p>4. <span class="hidden-xs">Payment</span></p>
-                        </div>
+<form id="gt" method="post" action="tickets.html">
+    <nav class="nav-steps fixed-bottom">
+        <div class="container">
+            <div class="zone">
+                <div class="col-xs-12 col-sm-9 steps">
+                    <div class="step active" id="navDateTime">
+                        <p>1. <span class="hidden-xs">Plan your visit</span></p>
                     </div>
-                    <div class="col-xs-12 col-sm-3 ticket-button mobile">
-                        <a class="button btn-arrow-right btn-sec" href="index-1.html">
-                            <span class="visible-xs-inline">2. </span> <span class="buttonText">Index 1</span> <span class="icons icon-arrow-right"></span>
-                        </a>
+                    <div class="step" id="navTicketsSummary">
+                        <p>2. <span class="hidden-xs">Tickets</span></p>
+                    </div>
+                    <div class="step" id="navYourInformation">
+                        <p>3. <span class="hidden-xs">Your information</span></p>
+                    </div>
+                    <div class="step" id="navPayment">
+                        <p>4. <span class="hidden-xs">Payment</span></p>
+                    </div>
+                    <div class="step" id="navIndex1">
+                        <p><a href="index.html">Index 1</a></p>
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-3 ticket-button mobile">
+                    <a href="tickets.html" class="button btn-arrow-right btn-sec">
+                        <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
+                    </a>
+                </div>
             </div>
-        </nav>
+        </div>
+    </nav>
         <section class="ticket-zone">
             <div class="container">
                 <div class="row">
@@ -329,3 +332,4 @@
     </script>
 </body>
 </html>
+
