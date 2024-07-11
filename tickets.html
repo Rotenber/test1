@@ -546,56 +546,19 @@
         <script src="js/plugins.js"></script>
         <script src="js/main-v2.1.js?v2.5.3"></script>
         <script>
-            $(function() {
-                $("#datepicker").datepicker({
-                    minDate: ticketDateMin,
-                    maxDate: ticketDateMax,
-                    beforeShowDay: function(date) {
-                        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                        return [disabledDates.indexOf(string) == -1];
-                    },
-                    onSelect: function(dateText, inst) {
-                        onDatepickerOption(dateText);
-                        $('.time-selection').show(); // Показываем таблицу после выбора даты
-                    }
-                });
-                
-                $('.ticket-button-submit').on('click', function() {
-                    $('#gt').submit();
-                });
-                
-                $('.vgm-donation').on('click', function() {
-                    var donationValue = $(this).data('donationvalue');
-                    if (donationValue === 'other') {
-                        $('.donationOther').show();
-                    } else {
-                        $('#donation-input').val(donationValue);
-                        $('.donationOther').hide();
-                    }
-                });
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([.$?*|{}()[]\/+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
 
-                $('#add-tickets').on('click', function() {
-                    $('#tickets-part2').toggle();
-                });
-
-                $('.ticket-info__more-options').on('click', function(e) {
-                    e.preventDefault();
-                    $(this).closest('.ticket__cat').find('.descriptionHidden').toggle();
-                });
-
-                $('#museumkaart-info').on('click', function(e) {
-                    e.preventDefault();
-                    $('#museumkaart-card-dialog').show();
-                });
-
-                $('#stadspas-info').on('click', function(e) {
-                    e.preventDefault();
-                    $('#stadspas-card-dialog').show();
-                });
-            });
-        </script>
-    </body>
+        document.getElementById('ticketDate').textContent = getCookie('ticketDate');
+        document.getElementById('ticketTime').textContent = getCookie('ticketTime');
+    </script>
+</body>
 </html>
+   
                                                    
 
 
