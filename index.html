@@ -110,35 +110,35 @@
             </div>
         </div>
     </header>
-<form id="gt" method="post" action="tickets.html">
-    <nav class="nav-steps fixed-bottom">
-        <div class="container">
-            <div class="zone">
-                <div class="col-xs-12 col-sm-9 steps">
-                    <div class="step active" id="navDateTime">
-                        <p>1. <span class="hidden-xs">Plan your visit</span></p>
+    <form id="gt" method="post" action="tickets.html">
+        <nav class="nav-steps fixed-bottom">
+            <div class="container">
+                <div class="zone">
+                    <div class="col-xs-12 col-sm-9 steps">
+                        <div class="step active" id="navDateTime">
+                            <p>1. <span class="hidden-xs">Plan your visit</span></p>
+                        </div>
+                        <div class="step" id="navTicketsSummary">
+                            <p>2. <span class="hidden-xs">Tickets</span></p>
+                        </div>
+                        <div class="step" id="navYourInformation">
+                            <p>3. <span class="hidden-xs">Your information</span></p>
+                        </div>
+                        <div class="step" id="navPayment">
+                            <p>4. <span class="hidden-xs">Payment</span></p>
+                        </div>
+                        <div class="step" id="navIndex1">
+                            <p><a href="index.html">Index 1</a></p>
+                        </div>
                     </div>
-                    <div class="step" id="navTicketsSummary">
-                        <p>2. <span class="hidden-xs">Tickets</span></p>
+                    <div class="col-xs-12 col-sm-3 ticket-button mobile">
+                        <a href="tickets.html" class="button btn-arrow-right btn-sec" onclick="event.preventDefault(); document.getElementById('gt').submit();">
+                            <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
+                        </a>
                     </div>
-                    <div class="step" id="navYourInformation">
-                        <p>3. <span class="hidden-xs">Your information</span></p>
-                    </div>
-                    <div class="step" id="navPayment">
-                        <p>4. <span class="hidden-xs">Payment</span></p>
-                    </div>
-                    <div class="step" id="navIndex1">
-                        <p><a href="index.html">Index 1</a></p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-3 ticket-button mobile">
-                    <a href="tickets.html" class="button btn-arrow-right btn-sec">
-                        <span class="visible-xs-inline">2. </span> <span class="buttonText">Tickets</span> <span class="icons icon-arrow-right"></span>
-                    </a>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
         <section class="ticket-zone">
             <div class="container">
                 <div class="row">
@@ -153,7 +153,13 @@
                             <span>How many people are there in your group?</span>
                             <div class="select-style">
                                 <select name="people-select" id="people-select">
-                                <option value="1" selected="selected">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>                                    </select>
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
                             </div>
                         </div>
 
