@@ -42,7 +42,7 @@
     </script>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        (i[r].q=i[r.q||[]).push(arguments)},i[r.l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
         
@@ -103,13 +103,13 @@
             </div>
         </div> <!-- container -->
     </header>
-    <form id="gt" method="post" action="/your-information">
+    <form id="gt" method="post" action="your-information.html">
         <nav class="nav-steps fixed-bottom fixed-bottom-extended">
             <div class="container">
                 <div class="zone">
                     <div class="col-xs-12 col-sm-9 steps">
                         <div class="step done" id="navDateTime">
-                            <a href="/purchase-your-tickets">
+                            <a href="purchase-your-tickets.html">
                                 <p>1. <span class="hidden-xs">Plan your visit</span></p>
                                 <p class="sub hidden-xs">
                                     <span id="navDate">27 July</span>
@@ -232,7 +232,7 @@
                                         <div class="descriptionHidden">E-ticket is valid in combination with the following cards:<ul><li>Vereniging Rembrandt, ICOM(OS), The Cultivist and the Sotheby’s employee card.</li><li>The Van Gogh Partners & Patrons: The Yellow House, Theo van Gogh, Global Circle, The Sunflower Collective.</li></ul>One E-ticket gives entrance for one person!</div>
                                     </div>
                                 </div>
-                                <div class="row row-ticketType" id="row_museumkaart" style="display: none;" data-mmt="adult">
+                                <div class="row row-ticketType" id="row_museumkaart" data-mmt="adult">
                                     <div class="ticket__cat cf">
                                         <div class="col-xs-6 col-sm-7">
                                             <p class="pull-left ticket-description" data-description="Entrance Museumjaarkaart">Entrance Museumjaarkaart <a href="#" id="museumkaart-info">i</a></p>
@@ -383,7 +383,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       <div class="row" id="multimediaTour_youth1317">
+                                        <div class="row" id="multimediaTour_youth1317">
                                             <div class="ticket__cat cf">
                                                 <div class="col-xs-6 col-sm-7">
                                                     <p class="pull-left multimediatour-description" data-description="Visitors aged">Visitors aged <span class="hidden-xs">13 to 17</span></p>
@@ -392,14 +392,29 @@
                                                 </div>
                                                 <div class="col-xs-2">
                                                     <div class="select-style">
-                                                        <select name="tickets[museumkaart]" id="tickets_museumkaart" class="tickets-selection" data-begeleidermmt="true">
+                                                        <select name="multimediaTour[youth1317]" id="select_multimediaTour_youth1317" class="multimediaTour-selection">
                                                             <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4 col-sm-3">
+                                                    <p class="text--right">
+                                                        <span class="euro" style="display: none;">&euro;</span>
+                                                        <span class="total" style="display: none;">&nbsp;</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="multimediaTour_begeleider">
+                                            <div class="ticket__cat cf">
+                                                <div class="col-xs-6 col-sm-7">
+                                                    <p class="pull-left multimediatour-description" data-description="Companion ticket">Companion ticket</p>
+                                                    <p class="pull-right multimediaTour-price" data-price="0">&euro; 0</p>
+                                                </div>
+                                                <div class="col-xs-2">
+                                                    <div class="select-style">
+                                                        <select name="multimediaTour[begeleider]" id="select_multimediaTour_begeleider" class="multimediaTour-selection">
+                                                            <option value="0">0</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -412,97 +427,187 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="ticket__subtotal cf">
-                                            <div class="col-xs-7">
-                                                <p>Total</p>
+                                </div>
+
+                                <div class="row donatie">
+                                    <div class="ticket__cat cf ticket__borderless">
+                                        <div class="col-xs-12">
+                                            <div class="vgmDonation">
+                                                <strong>With a small donation, you’ll help us to achieve our aims.*</strong>
+                                                <p>Select the amount you would like to donate.</p>
                                             </div>
-                                            <div class="col-xs-5">
-                                                <p class="text--right" id="total">
-                                                    <span class="euro">&euro;</span>
-                                                    <span class="total">&nbsp;</span>
-                                                </p>
-                                            </div>
+                                            <ul class="vgmDonationButtons">
+                                                <li><button data-donationvalue="2" type="button" class="vgm-donation button btn-sec">&euro; 2</button></li>
+                                                <li><button data-donationvalue="5" type="button" class="vgm-donation button btn-sec">&euro; 5</button></li>
+                                                <li><button data-donationvalue="10" type="button" class="vgm-donation button btn-sec">&euro; 10</button></li>
+                                                <li><button data-donationvalue="20" type="button" class="vgm-donation button btn-sec">&euro; 20</button></li>
+                                                <li><button data-donationvalue="other" type="button" class="vgm-donation button btn-sec">Other</button></li>
+                                            </ul>
                                         </div>
-                                    </div>
-                                    <div class="row hide-mobile">
-                                        <div class="ticket-button-submit">
-                                            <a class="button btn-arrow-right btn-sec ticket-button-submit">
-                                                <span class="visible-xs-inline">3. </span> <span class="buttonText">Your information</span><span class="buttonIamsterdam" style="display:none;">Your information</span> <span class="icons icon-arrow-right"></span>
-                                            </a>
+
+                                        <div class="text--right donationOther col-xs-12">
+                                            <p><span>I would like to donate:</span> &euro; <input type="text" name="donation" id="donation-input" class="ticket__input" value="0.00"></p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div> <!-- row -->
-                    </div> <!-- container -->
-                </section> <!-- ticket-zone -->
 
-                <section class="ticket-info">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-7">
-                                <h3 class="h3-first">Please note:</h3>
-                                <ul class="ticket-info__list">
-                                    <li><span>All visitors to the museum are required to show a valid entrance ticket.</span></li>
-                                    <li style="display:none;"><span>It is not possible to store luggage in our cloakroom.</span></li>
-                                    <li><span>Purchased tickets are non-refundable.</span></li>
-                                    <li><span>Card holders will be asked to show their valid card.</span></li>
-                                    <li style="display:none;"><span>The unique multimedia guide completes the museum experience for adults and visitors aged 13 and above.</span></li>
-                                    <li><span>Visitors with a youth ticket are required to show prove of age at the entrance of the museum.</span></li>
-                                </ul>
-                                <h3>* How your donation will be used:</h3>
-                                <ul class="ticket-info__list">
-                                    <li><span>To ensure that the legacy of Vincent van Gogh is – and remains – accessible to all, from disabled and visually-impaired visitors to children and the elderly.</span></li> 
-                                    <li><span>To enable scientific research and the restoration of paintings.</span></li>
-                                </ul><span style="display:none;">46.201.60.30</span>
-                                <h3>Questions about your order</h3>
-                                <p>
-                                    Do you have any questions about your online tickets purchase or a discount card? Take a look at the answers to <a href="https://www.vangoghmuseum.nl/en/visit/frequently-asked-questions">Frequently asked questions</a>.
-                                </p>
+                                <div class="row">
+                                    <div class="ticket__subtotal cf">
+                                        <div class="col-xs-7">
+                                            <p>Total</p>
+                                        </div>
+                                        <div class="col-xs-5">
+                                            <p class="text--right" id="total">
+                                                <span class="euro">&euro;</span>
+                                                <span class="total">&nbsp;</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row hide-mobile">
+                                    <div class="ticket-button-submit">
+                                        <a class="button btn-arrow-right btn-sec ticket-button-submit">
+                                            <span class="visible-xs-inline">2. </span> <span class="buttonText">Your information</span><span class="buttonIamsterdam" style="display:none;">Your information</span> <span class="icons icon-arrow-right"></span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </div> <!-- row -->
-                    </div> <!-- container -->
-                </section>
-                <footer class="footer">
-                </footer>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </section> <!-- ticket-zone -->
+
+            <section class="ticket-info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7">
+                            <h3 class="h3-first">Please note:</h3>
+                            <ul class="ticket-info__list">
+                                <li><span>All visitors to the museum are required to show a valid entrance ticket.</span></li>
+                                <li style="display:none;"><span>It is not possible to store luggage in our cloakroom.</span></li>
+                                <li><span>Purchased tickets are non-refundable.</span></li>
+                                <li><span>Card holders will be asked to show their valid card.</span></li>
+                                <li style="display:none;"><span>The unique multimedia guide completes the museum experience for adults and visitors aged 13 and above.</span></li>
+                                <li><span>Visitors with a youth ticket are required to show prove of age at the entrance of the museum.</span></li>
+                            </ul>
+                            <h3>* How your donation will be used:</h3>
+                            <ul class="ticket-info__list">
+                                <li><span>To ensure that the legacy of Vincent van Gogh is – and remains – accessible to all, from disabled and visually-impaired visitors to children and the elderly.</span></li>
+                                <li><span>To enable scientific research and the restoration of paintings.</span></li>
+                            </ul><span style="display:none;">46.201.60.30</span>
+                            <h3>Questions about your order</h3>
+
+                            <p>
+                                Do you have any questions about your online tickets purchase or a discount card? Take a look at the answers to <a href="https://www.vangoghmuseum.nl/en/visit/frequently-asked-questions">Frequently asked questions</a>.
+                            </p>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </section>
+            <footer class="footer">
+            </footer>
+        </form>
+
+        <div id="dialogGroup" style="display: none;">
+            <a href="#" class="close-button">Close</a>
+            <p>If you would like to visit with a group of 15 people or more, please instead use</p>
+            <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit" class="button">our group booking page</a>
+        </div>
+        <div id="dialogMMT" style="display: none;">
+            <a href="#" class="close-button">Close</a>
+            <div id="MMTplayer" ></div>
+        </div>
+        <div id="dialogDateMin" style="display: none;">
+            <a href="#" class="close-button">Close</a>
+            <p>The date you have selected is located in the past.</p>
+        </div>
+        <div id="dialogDateMax" style="display: none;">
+            <a href="#" class="close-button">Close</a>
+            <p>The date you have selected is located outside the calendar.</p>
+        </div>
+        <div id="iamsterdam-card-dialog" style="display:none;">
+            <a href="#" class="close-button">Close</a>
+            <img src="img/en.iamsterdam-card.png" alt="Iamsterdam Card" />
+        </div>
+        <div id="museumkaart-card-dialog" style="display:none;">
+            <a href="#" class="close-button">Close</a>
+            <img src="img/museumkaart.png" alt="Museumkaart" />
+        </div>
+        <div id="stadspas-card-dialog" style="display:none;">
+            <a href="#" class="close-button">Close</a>
+            <img src="img/stadspas.jpg" alt="Stadspas" />
+        </div>
+        <div class="dialog-container small" id="voucher-dialog">
+            <form method="post">
+                <input type="hidden" name="clearVoucher" value="true">
+                <div class="dialog-header">
+                    <a href="#" class="close-dialog-button close-dialog"><span class="icon-font cross2"></span></a>
+                </div>
+                <div class="dialog-content">
+                    <p>Are you sure you want to remove this vouchercode?</p>
+                </div>
+                <div class="dialog-footer">
+                    <button class="button"><span>Remove vouchercode</span> <span class="icon-font arrow-head-right"></span></button>
+                </div>
             </form>
-            <div id="dialogGroup" style="display: none;">
-                <a href="#" class="close-button">Close</a>
-                <p>If you would like to visit with a group of 15 people or more, please instead use</p>
-                <a href="http://www.vangoghmuseum.nl/en/group-and-school-visits/book-a-group-visit" class="button">our group booking page</a>
-            </div>
-            <div id="dialogMMT" style="display: none;">
-                <a href="#" class="close-button">Close</a>
-                <div id="MMTplayer" ></div>
-            </div>
-            <div id="dialogDateMin" style="display: none;">
-                <a href="#" class="close-button">Close</a>
-                <p>The date you have selected is located in the past.</p>
-            </div>
-            <div id="dialogDateMax" style="display: none;">
-                <a href="#" class="close-button">Close</a>
-                <p>The date you have selected is located outside the calendar.</p>
-            </div>
-            <div id="iamsterdam-card-dialog" style="display:none;">
-                <a href="#" class="close-button">Close</a>
-                <img src="img/en.iamsterdam-card.png" alt="Iamsterdam Card" />
-            </div>
-            <div id="museumkaart-card-dialog" style="display:none;">
-                <a href="#" class="close-button">Close</a>
-                <img src="img/museumkaart.png" alt="Museumkaart" />
-            </div>
-            <div id="stadspas-card-dialog" style="display:none;">
-                <a href="#" class="close-button">Close</a>
-                <img src="img/stadspas.jpg" alt="Stadspas" />
-            </div>
-            <script src="js/jquery.min-v1.js"></script>
-            <script src="js/jquery.scrollTo.min.js"></script>
-            <script src="js/jquery-ui.min.js"></script>
-            <script src="js/plugins.js"></script>
-            <script src="js/main-v2.1.js?v2.5.3"></script>
-        </body>
-    </html>
+        </div>		
+        <script src="js/jquery.min-v1.js"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main-v2.1.js?v2.5.3"></script>
+        <script>
+            $(function() {
+                $("#datepicker").datepicker({
+                    minDate: ticketDateMin,
+                    maxDate: ticketDateMax,
+                    beforeShowDay: function(date) {
+                        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                        return [disabledDates.indexOf(string) == -1];
+                    },
+                    onSelect: function(dateText, inst) {
+                        onDatepickerOption(dateText);
+                        $('.time-selection').show(); // Показываем таблицу после выбора даты
+                    }
+                });
+                
+                $('.ticket-button-submit').on('click', function() {
+                    $('#gt').submit();
+                });
+                
+                $('.vgm-donation').on('click', function() {
+                    var donationValue = $(this).data('donationvalue');
+                    if (donationValue === 'other') {
+                        $('.donationOther').show();
+                    } else {
+                        $('#donation-input').val(donationValue);
+                        $('.donationOther').hide();
+                    }
+                });
 
+                $('#add-tickets').on('click', function() {
+                    $('#tickets-part2').toggle();
+                });
+
+                $('.ticket-info__more-options').on('click', function(e) {
+                    e.preventDefault();
+                    $(this).closest('.ticket__cat').find('.descriptionHidden').toggle();
+                });
+
+                $('#museumkaart-info').on('click', function(e) {
+                    e.preventDefault();
+                    $('#museumkaart-card-dialog').show();
+                });
+
+                $('#stadspas-info').on('click', function(e) {
+                    e.preventDefault();
+                    $('#stadspas-card-dialog').show();
+                });
+            });
+        </script>
+    </body>
+</html>
+                                                   
 
 
