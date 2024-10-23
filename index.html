@@ -124,67 +124,6 @@
             }
         }
 
-        /* Модальное окно */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            visibility: visible;
-            opacity: 1;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .hidden {
-            visibility: hidden;
-            opacity: 0;
-        }
-
-        .modal-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 80%;
-            max-width: 400px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .button {
-            background-color: #ff6666;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #e55d5d;
-        }
-
-        .close-button {
-            background-color: #ff6666;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 8px 16px;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-
-        .close-button:hover {
-            background-color: #e55d5d;
-        }
-
     </style>
 </head>
 <body>
@@ -198,59 +137,11 @@
         <button class="start-button" onclick="startQuest()">Начать квест</button>
     </div>
 
-    <!-- Модальное окно с вопросом -->
-    <div id="music-modal" class="modal">
-        <div class="modal-content">
-            <h1>Музыкальная пауза?</h1>
-            <button class="button" onclick="handleMusicPause('yes')">Да</button>
-            <button class="button" onclick="handleMusicPause('no')">Нет</button>
-        </div>
-    </div>
-
-    <!-- Приветствие для трека -->
-    <div id="music-greeting" class="modal hidden">
-        <div class="modal-content">
-            <h1>Приветствуем вас!</h1>
-            <p>Трек начнется через секунду. Наслаждайтесь!</p>
-            <button class="button" onclick="closeGreeting()">Оке</button>
-        </div>
-    </div>
-
-    <!-- Сообщение об ошибке (для ответа "нет") -->
-    <div id="error-message" class="modal hidden">
-        <div class="modal-content">
-            <h1>Error 404</h1>
-            <p>Трек все равно запущен, но что-то пошло не так!</p>
-            <button class="close-button" onclick="closeError()">Закрыть</button>
-        </div>
-    </div>
-
     <script>
-        const audioElement = new Audio('audio/apology.mp3');
-
-        function handleMusicPause(answer) {
-            document.getElementById('music-modal').classList.add('hidden');
-            if (answer === 'yes') {
-                document.getElementById('music-greeting').classList.remove('hidden');
-            } else {
-                document.getElementById('error-message').classList.remove('hidden');
-            }
-            audioElement.play();  // Запуск трека
-        }
-
-        function closeGreeting() {
-            document.getElementById('music-greeting').classList.add('hidden');
-        }
-
-        function closeError() {
-            document.getElementById('error-message').classList.add('hidden');
-        }
-
         function startQuest() {
             // Переход на следующую страницу квеста
-            window.location.href = "quest.html";
+            window.location.href = "level1.html";
         }
     </script>
 </body>
 </html>
-
