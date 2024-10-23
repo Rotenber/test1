@@ -15,18 +15,19 @@
             align-items: center;
             flex-direction: column;
             text-align: center;
-            overflow: hidden; /* Для скрытия смайликов при падении */
+            height: auto; /* Позволяем высоте страницы увеличиваться */
         }
 
         .container {
-            width: 80%;
+            width: 80%; /* Уменьшенный размер блока */
             max-width: 800px; /* Ограничение на ширину */
             background: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
-            padding: 20px;
+            padding: 20px; /* Увеличен padding */
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.1); /* Тень для объёмности */
+            backdrop-filter: blur(10px); /* Лёгкое размытие фона за блоком */
             margin-bottom: 20px; /* Отступ снизу */
+            overflow: auto; /* Разрешаем прокрутку внутри контейнера */
         }
 
         h1 {
@@ -94,4 +95,3 @@
 
 </body>
 </html>
-
