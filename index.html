@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
+            background-color: #eaf4f4; /* Мягкий голубой фон */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,21 +20,43 @@
         .container {
             width: 90%;
             max-width: 400px;
-            background-color: #fff;
+            background: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.1); /* Тень для объёмности */
+            border: 2px solid rgba(74, 124, 125, 0.5); /* Полупрозрачные грани */
+            backdrop-filter: blur(10px); /* Лёгкое размытие фона за блоком */
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards; /* Анимация появления */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px); /* Легкий эффект подъема при наведении */
+            background: rgba(255, 255, 255, 0.9); /* Меняем прозрачность при наведении */
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
-            color: #333;
+            color: #4a7c7d; /* Нежный зелёный для заголовка */
         }
 
         p {
             font-size: 16px;
-            color: #666;
+            color: #5e6e6e; /* Мягкий серый для текста */
         }
 
         .start-button {
@@ -42,15 +64,30 @@
             padding: 12px 20px;
             font-size: 18px;
             color: #fff;
-            background-color: #ff6b6b;
+            background-color: #4a7c7d; /* Нежный зелёный для кнопки */
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Тень для кнопки */
+            animation: pulse 1.5s infinite; /* Пульсация кнопки */
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         .start-button:hover {
-            background-color: #ff4c4c;
+            background-color: #3d696a; /* Более тёмный зелёный при наведении */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Более сильная тень при наведении */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
         @media (max-width: 600px) {
@@ -84,3 +121,4 @@
     </script>
 </body>
 </html>
+
