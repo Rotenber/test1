@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 3: Наши фотографии</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eaf4f4; /* Мягкий голубой фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden; /* Для скрытия смайликов при падении */
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px; /* Ограничение на ширину */
+            background: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #4a7c7d; /* Нежный зелёный для заголовка */
+            margin-bottom: 20px;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Сетка для фотографий */
+            gap: 15px; /* Отступ между фото */
+        }
+
+        .photo-gallery img {
+            width: 100%; /* Заполнение ширины блока */
+            border-radius: 10px; /* Скругленные углы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для фотографий */
+            transition: transform 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.05); /* Эффект увеличения при наведении */
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4a7c7d; /* Нежный зелёный для кнопки */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px; /* Отступ сверху */
+        }
+
+        .button:hover {
+            background-color: #3d696a; /* Более тёмный зелёный при наведении */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Альбом</h1>
+        <p>Смотри какие мы с тобой секси</p>
+        
+        <div class="photo-gallery">
+            <img src="images/photo1.jpg" alt="Фото 1">
+            <img src="images/photo2.jpg" alt="Фото 2">
+            <img src="images/photo3.jpg" alt="Фото 3">
+            <img src="images/photo4.jpg" alt="Фото 4">
+            <img src="images/photo5.jpg" alt="Фото 5">
+            <img src="images/photo6.jpg" alt="Фото 6">
+            <!-- Добавьте больше изображений по желанию -->
+        </div>
+
+        <button class="button" onclick="goToNextLevel()">Next</button>
+    </div>
+
+    <script>
+        function goToNextLevel() {
+            window.location.href = 'level4.html'; // Переход на следующий уровень
+        }
+    </script>
+
+</body>
+</html>
+

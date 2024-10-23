@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 2: Воспоминание</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eaf4f4; /* Мягкий голубой фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden; /* Для скрытия смайликов при падении */
+        }
+
+        .container {
+            width: 80%; /* Уменьшенный размер блока */
+            max-width: 350px; /* Ограничение на ширину */
+            background: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
+            padding: 20px; /* Увеличен padding */
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.1); /* Тень для объёмности */
+            border: 2px solid rgba(74, 124, 125, 0.5); /* Полупрозрачные грани */
+            backdrop-filter: blur(10px); /* Лёгкое размытие фона за блоком */
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards; /* Анимация появления */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 22px; /* Чуть меньше размер заголовка */
+            color: #4a7c7d; /* Нежный зелёный для заголовка */
+            font-weight: bold; /* Жирный заголовок */
+            margin-right: 10px; /* Отступ между текстом и гифкой */
+        }
+
+        .header img {
+            width: 50px; /* Уменьшен размер гифки */
+            height: 50px;
+        }
+
+        p {
+            font-size: 16px; /* Увеличен размер текста */
+            color: #4a7c7d; /* Более яркий цвет текста */
+            line-height: 1.6;
+            font-weight: bold; /* Жирный текст */
+            margin-bottom: 15px; /* Отступ снизу */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px; /* Увеличены padding кнопки */
+            font-size: 16px;
+            color: #fff;
+            background-color: #4a7c7d; /* Нежный зелёный для кнопки */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Тень для кнопки */
+            animation: pulse 1.5s infinite; /* Пульсация кнопки */
+            transition: background-color 0.3s, box-shadow 0.3s;
+            margin: 5px; /* Отступ между кнопками */
+        }
+
+        .button:hover {
+            background-color: #3d696a; /* Более тёмный зелёный при наведении */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Более сильная тень при наведении */
+        }
+
+        /* Модальное окно */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый */
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 350px;
+        }
+
+        .modal-content .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content img {
+            width: 50px; /* Размер гифки в модальном окне */
+            height: 50px;
+            margin-right: 10px; /* Отступ между гифкой и текстом */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Стих</h1>
+            <img src="images/apology.gif" alt="Извиняюсь" />
+        </div>
+        <p>Изначально тут должен был быть вопрос но я не знал какой и решил написать суда стих:</p>
+        <p>В глазах твоих сияет свет,<br>
+        Как звёзды в ясную ночь.<br>
+        Ты — радость сердца, нежный лотос,<br>
+        Любовь, что в жизни нас зовёт.</p>
+
+        <p>Твой смех — как музыка весны,<br>
+        Что сердце трепещёт от счастья.<br>
+        С тобой мечты становятся реальностью,<br>
+        Ты — мой свет, мой день, моя страсть.</p>
+
+        <p>Рука в руке, мы вместе в пути,<br>
+        С тобой любые горести не страшны.<br>
+        Лиза, моя любовь, моя радость,<br>
+        С тобой я готов навсегда мечтать.</p>
+
+        <button class="button" onclick="showLikedModal()">Понравилось?</button>
+    </div>
+
+    <!-- Модальное окно для "Да" -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <div class="header">
+                <img src="images/placeholder.gif" alt="Гифка" />
+            </div>
+            <h2>Хмм...</h2>
+            <button class="button" onclick="nextLevel()">Да</button>
+            <button class="button" onclick="showDislikedModal()">Нет</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно для "Нет" -->
+    <div id="fail-modal" class="modal">
+        <div class="modal-content">
+            <h2>Почему?</h2>
+            <button class="button" onclick="closeModal()">Попробовать снова</button>
+        </div>
+    </div>
+
+    <script>
+        // Показать модальное окно для "Да"
+        function showLikedModal() {
+            document.getElementById('success-modal').classList.add('show');
+        }
+
+        // Показать модальное окно для "Нет"
+        function showDislikedModal() {
+            document.getElementById('fail-modal').classList.add('show');
+        }
+
+        // Переход на следующий уровень
+        function nextLevel() {
+            window.location.href = 'level3.html'; // Переход на следующий уровень
+        }
+
+        // Закрытие окна ошибки
+        function closeModal() {
+            document.getElementById('fail-modal').classList.remove('show');
+        }
+    </script>
+
+</body>
+</html>
